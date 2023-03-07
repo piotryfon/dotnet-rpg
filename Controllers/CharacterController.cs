@@ -16,5 +16,12 @@ namespace dotnet_rpg.Controllers
 
         [HttpGet("{id}")]
         public ActionResult<Character> GetSingle(int id) => Ok(characters.FirstOrDefault(c => c.Id == id));
+
+        [HttpPut]
+        public ActionResult<List<Character>> AddCharacter(Character newCharacter)
+        {
+            characters.Add(newCharacter);
+            return Ok(characters);
+        }
     }
 }
